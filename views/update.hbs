@@ -15,13 +15,14 @@
             <h1>Update Toys</h1>
             
             <div class="flex">
-                <p> <input type="hidden" name="id" id="id" value="{{book._id}}"></p>
-                <p><span>Name:</span> <input type="text" name="txtNameToys" id="name" value="{{toys.NameToys}}"></p>
-                <p><span>Price:</span> <input type="text" name="txtPriceToys" id="price" value="{{toys.PriceToys}}"></p>
-                <p><span>Description:</span><textarea name="txtDescriptionToys" id="" cols="21" rows="8">{{toys.DescriptionToys}}</textarea></p>
+                <p> <input type="hidden" name="id" id="id" value="{{Toys._id}}"></p>
+                <p><span>Name:</span> <input type="text" name="txtNameToys" id="name" value="{{Toys.NameToys}}"></p>
+                <p><span>Price:</span> <input type="text" name="txtPriceToys" id="price" value="{{Toys.PriceToys}}"></p>
+                <p><span>Description:</span><textarea name="txtDescriptionToys" id="description" cols="21" rows="8">{{Toys.DescriptionToys}}</textarea></p>
+  
                 
             </div>
-            <p class="btn-p"><input type="submit" id="btn" value="Update"></p>
+            <p class="btn-p"><input type="submit" id="btn" value="update"></p>
         </form>
     </div>
 
