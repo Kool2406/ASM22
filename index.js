@@ -14,7 +14,7 @@ app.set('views','./views');
 app.set('view engine','hbs');
 
 
-var bookController = require('./book.js')
+var toysController = require('./toys.js')
 app.use('/',toysController);
 
 var server = app.listen(process.env.PORT||2406,function(){

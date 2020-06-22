@@ -9,7 +9,7 @@ var url = "mongodb+srv://kool2406:0961688824Kool@cluster0-y4ose.mongodb.net/test
 router.get('/',async (req,res)=>{   
     let client = await MongoClient.connect(url);
     let dbo = client.db("Kool");
-    let result = await dbo.collection("Book").find({}).toArray();
+    let result = await dbo.collection("Toys").find({}).toArray();
     res.render('showtoys',{toys:result});
 });
 
@@ -59,6 +59,7 @@ router.post('/doUpdate', async(req,res)=>{
     let newValues ={$set : {NameToys: name,PriceToys:price,DescriptionToys:description}};
     var ObjectID = require('mongodb').ObjectID;
     let condition = {"_id" : ObjectID(id)};
+    console.log(id);
     
     let client= await MongoClient.connect(url);
     let dbo = client.db("Kool");
