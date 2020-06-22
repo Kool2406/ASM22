@@ -15,7 +15,7 @@ app.set('view engine','hbs');
 
 
 var bookController = require('./book.js')
-app.use('/',bookController);
+app.use('/',toysController);
 
 var server = app.listen(process.env.PORT||2406,function(){
     console.log("Loading......!");

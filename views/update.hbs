@@ -12,13 +12,13 @@
     <div class="form"; style="background-color: lightblue;">
         <form action="doUpdate" method="POST">
             
-            <h1>Update Book</h1>
+            <h1>Update Toys</h1>
             
             <div class="flex">
                 <p> <input type="hidden" name="id" id="id" value="{{book._id}}"></p>
-                <p><span>Name:</span> <input type="text" name="txtNameBook" id="name" value="{{book.NameBook}}"></p>
-                <p><span>Price:</span> <input type="text" name="txtPriceBook" id="price" value="{{book.PriceBook}}"></p>
-                <p><span>Description:</span><textarea name="txtDescriptionBook" id="" cols="21" rows="8">{{book.DescriptionBook}}</textarea></p>
+                <p><span>Name:</span> <input type="text" name="txtNameToys" id="name" value="{{toys.NameToys}}"></p>
+                <p><span>Price:</span> <input type="text" name="txtPriceToys" id="price" value="{{toys.PriceToys}}"></p>
+                <p><span>Description:</span><textarea name="txtDescriptionToys" id="" cols="21" rows="8">{{toys.DescriptionToys}}</textarea></p>
                 
             </div>
             <p class="btn-p"><input type="submit" id="btn" value="Update"></p>

@@ -5,12 +5,12 @@ router.use(express.static(publicDir));
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb+srv://kool2406:0961688824Kool@cluster0-y4ose.mongodb.net/test "
 
-/// mở trang default của tao
+///  default 
 router.get('/',async (req,res)=>{   
     let client = await MongoClient.connect(url);
     let dbo = client.db("Kool");
     let result = await dbo.collection("Book").find({}).toArray();
-    res.render('showbook',{book:result});
+    res.render('showtoys',{toys:result});
 });
 
 //// delete
@@ -20,27 +20,27 @@ router.get('/delete',async (req,res)=>{
     let condition = {"_id" : ObjectID(id)};
     let client= await MongoClient.connect(url);
     let dbo = client.db("Kool");
-    await dbo.collection("Book").deleteOne(condition);
-    let results = await dbo.collection("Book").find({}).toArray();
-    res.render('showbook',{book:results});
+    await dbo.collection("Toys").deleteOne(condition);
+    let results = await dbo.collection("Toys").find({}).toArray();
+    res.render('showtoys',{toys:results});
 });
 
 router.get('/',async(req,res)=>{
-    res.render('showbook',{book:result});
+    res.render('showtoys',{toys:result});
 });
 
 /// add
 router.post('/doInsert',async(req,res)=>{
     let client= await MongoClient.connect(url);
     let dbo = client.db("Kool");
-    let name = req.body.txtNameBook;
-    let price = req.body.txtPriceBook;
-    let description = req.body.txtDescriptionBook;
-    let newProduct = {NameBook : name, PriceBook : price, DescriptionBook:description};
-    await dbo.collection("Book").insertOne(newProduct);
+    let name = req.body.txtNameToys;
+    let price = req.body.txtPriceToys;
+    let description = req.body.txtDescriptionToys;
+    let newProduct = {NameToys : name, PriceToys : price, DescriptionToys:description};
+    await dbo.collection("Toys").insertOne(newProduct);
     console.log(newProduct);
-    let results = await dbo.collection("Book").find({}).toArray();
-    res.render('showbook',{book:results});
+    let results = await dbo.collection("Toys").find({}).toArray();
+    res.render('showtoys',{toys:results});
 });
 router.get('/update',async(req,res)=>
 {
@@ -48,24 +48,24 @@ router.get('/update',async(req,res)=>
     var ObjectID = require('mongodb').ObjectID; 
     let cliet = await MongoClient.connect(url);
     let dbo = cliet.db('Kool');
-    let result = await dbo.collection("Book").findOne({'_id' : ObjectID(id)});
-    res.render('update',{book:result});
+    let result = await dbo.collection("Toys").findOne({'_id' : ObjectID(id)});
+    res.render('update',{toys:result});
 })
 router.post('/doUpdate', async(req,res)=>{
     let id = req.body.id;
-    let name = req.body.txtNameBook;
-    let price = req.body.txtPriceBook;
+    let name = req.body.txtNameToys;
+    let price = req.body.txtPriceToys;
     let description = req.body.txtDescriptionBook;
-    let newValues ={$set : {NameBook: name,PriceBook:price,DescriptionBook:description}};
+    let newValues ={$set : {NameToys: name,PriceToys:price,DescriptionToys:description}};
     var ObjectID = require('mongodb').ObjectID;
     let condition = {"_id" : ObjectID(id)};
     
     let client= await MongoClient.connect(url);
     let dbo = client.db("Kool");
-    await dbo.collection("Book").updateOne(condition,newValues);
+    await dbo.collection("Toys").updateOne(condition,newValues);
     //
-    let results = await dbo.collection("Book").find({}).toArray();
-    res.render('showbook',{book:results});
+    let results = await dbo.collection("Toys").find({}).toArray();
+    res.render('showtoys',{toys:results});
 });
 
 module.exports = router;

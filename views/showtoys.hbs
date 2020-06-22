@@ -16,33 +16,33 @@ body {
    <div class="form">
         <form action="doInsert" method="POST">
             
-            <h1 style="color: red;">Add Book</h1>
+            <h1 style="color: red;">Add Toys</h1>
             
             <div class="flex">
-                <p><span>Name:</span> <input type="text" name="txtNameBook" ></p>
-                <p><span>Price:</span> <input type="text" name="txtPriceBook" ></p>
-                <p><span>Description:</span><textarea name="txtDescriptionBook" id="" cols="21" rows="8"></textarea></p>
+                <p><span>Name:</span> <input type="text" name="txtNameToys" ></p>
+                <p><span>Price:</span> <input type="text" name="txtPriceToys" ></p>
+                <p><span>Description:</span><textarea name="txtDescriptionToys" id="" cols="21" rows="8"></textarea></p>
                 
             </div>
             <p class="btn-p"><input type="submit" id="btn" value="Add"></p>
         </form>
     </div> 
-    <h1 style="color: red;">List of Books</h1>
+    <h1 style="color: red;">List of Toys</h1>
     <table class="styleTable" border="1">
         <tr>
             
-            <th class="name">NameBook</th> 
-            <th class="id">PriceBook</th>
-            <th class="name">DescriptionBook</th>
+            <th class="name">NameToys</th> 
+            <th class="id">PriceToys</th>
+            <th class="name">DescriptionToys</th>
             
         </tr>
-        {{#each book}} 
+        {{#each toys}} 
         <tr>
          
              
-             <td class="name">{{NameBook}}</td>
-            <td class="id">{{PriceBook}}</td>
-            <td class="name">{{DescriptionBook}}</td>
+             <td class="name">{{NameToys}}</td>
+            <td class="id">{{PriceToys}}</td>
+            <td class="name">{{DescriptionToys}}</td>
             <td class="btn">
                 <a href="/update?id={{_id}}">Update</a>
                 <a href="/delete?id={{_id}}">Delete</a>
